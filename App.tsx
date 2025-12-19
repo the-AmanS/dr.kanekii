@@ -105,6 +105,13 @@ const AnimatedRoutes = () => {
 const App: React.FC = () => {
   const [showWarning, setShowWarning] = useState(true);
 
+  useEffect(() => {
+    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth <= 768;
+    if (isMobile) {
+      alert("Please open this website on a desktop/laptop for the best experience. It is currently not fully optimized for small screens.");
+    }
+  }, []);
+
   return (
     <Router>
       <div className="bg-ghoul-dark text-white min-h-screen selection:bg-ghoul-red selection:text-white">
